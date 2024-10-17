@@ -1,6 +1,6 @@
 # Imports
-. ".\lib\config.ps1"
-$configFile = ".\config.ini"
+. "$PSScriptRoot\lib\config.ps1"
+$configFile = "$PSScriptRoot\config.ini"
 
 # Parse the config file to a hash table format
 $config = Parse-Config -path $configFile
@@ -21,7 +21,7 @@ $remainingTime = 0
 # Start the game, if it's not already started.
 $process = Get-Process -Name "DarkSoulsRemastered" -ErrorAction SilentlyContinue
 if (-not $process) {
-    Start-Process -FilePath "cmd.exe" -ArgumentList "/c `".\startup.bat`""
+    Start-Process -FilePath "cmd.exe" -ArgumentList "/c `"$PSScriptRoot\startup.bat`""
 }
 
 # Backup loop
