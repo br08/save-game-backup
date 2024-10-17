@@ -43,6 +43,7 @@ while ($true) {
         $process = Get-Process -Name "DarkSoulsRemastered" -ErrorAction SilentlyContinue
         if (-not $process) {
             Invoke-Expression "$backupCmd `"$saveDir`" `"$lastSave`""
+            Start-Sleep 2
             Write-Output "Exiting..."
             break 2  # Exit both loops if the process is not found
         }
